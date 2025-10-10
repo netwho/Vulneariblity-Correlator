@@ -27,6 +27,7 @@ Transform your network analysis workflow by automatically identifying vulnerable
 - **CVSS Score**: Numeric field supporting comparisons (`vulners.cvss_high >= 7.0`)
 - **CVE ID**: String field for tracking specific vulnerabilities (`vulners.cve_id == "CVE-2018-1312"`)
 - **Service Description**: Service identification from nmap scan (`vulners.service_desc contains "Apache"`)
+
 ![Wireshark Screenshot](images/wireshark-screenshot.png "Vulnerability analysis in Wireshark")
 
 ### **Smart Traffic Correlation**
@@ -39,6 +40,8 @@ Transform your network analysis workflow by automatically identifying vulnerable
 - Traffic correlation analysis
 - Detailed findings with packet locations
 - Severity breakdowns and risk assessments
+
+![Wireshark Screenshot](images/instructions-report.png "Instructions and Report Screen")
 
 ## 📋 **Quick Start**
 
