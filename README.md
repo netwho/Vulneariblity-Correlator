@@ -49,9 +49,9 @@ Transform your network analysis workflow by automatically identifying vulnerable
 
 ## 🖥️ **Installation**
 
-### **macOS (Automated Install)**
-Use our automated installer for hassle-free setup:
+We provide **automated installers for all major platforms** to make installation as easy as possible:
 
+### **🍎 macOS (Automated)**
 ```bash
 # 1. Download/clone this repository
 git clone https://github.com/yourusername/wireshark-vulnerability-correlator.git
@@ -63,36 +63,90 @@ cd wireshark-vulnerability-correlator/Mac-Installer/
 ./install_vulners_plugin.sh
 ```
 
-The installer will:
-- ✅ Check prerequisites and system compatibility
-- ✅ Install the plugin to the correct Wireshark directory
-- ✅ Create a pre-configured "Vulnerability Analysis" profile
-- ✅ Set up color filters for vulnerability highlighting
-- ✅ Configure display columns and useful filters
-
-**See [Mac-Installer/README.md](./Mac-Installer/README.md) for detailed macOS installation guide.**
-
-### **Linux/Windows (Manual Install)**
-
-#### 1. **Install Plugin**
+### **🐧 Linux (Automated)**
 ```bash
-# Linux
-mkdir -p ~/.local/lib/wireshark/plugins
-cp vulners_correlator_final.lua ~/.local/lib/wireshark/plugins/
+# 1. Download/clone this repository
+git clone https://github.com/yourusername/wireshark-vulnerability-correlator.git
 
-# Windows (PowerShell)
-# Create directory: %APPDATA%\Wireshark\plugins
-# Copy plugin file to that location
+# 2. Navigate to the Linux installer
+cd wireshark-vulnerability-correlator/Linux-Installer/
+
+# 3. Make installer executable and run
+chmod +x install_vulners_plugin_linux.sh
+./install_vulners_plugin_linux.sh
 ```
 
-#### 2. **Configure Wireshark**
+**Supported Linux Distributions:**
+- Ubuntu 18.04+ / Debian 9+
+- Fedora 30+ / CentOS 7+ / RHEL 7+
+- Arch Linux / openSUSE Leap 15.0+
+- Most other modern Linux distributions
+
+### **🪟 Windows (Automated)**
+```powershell
+# 1. Download/clone this repository
+git clone https://github.com/yourusername/wireshark-vulnerability-correlator.git
+cd wireshark-vulnerability-correlator\Windows-Installer\
+
+# 2. Run the PowerShell installer
+.\install_vulners_plugin_windows.ps1
+
+# Or right-click the .ps1 file and select "Run with PowerShell"
+```
+
+**Windows Requirements:**
+- Windows 10+ (recommended) or Windows 8.1 with PowerShell 5.0+
+- Wireshark 3.0 or later
+
+## ✨ **What All Installers Do**
+
+All our automated installers provide the same comprehensive setup:
+
+- ✅ **Prerequisites Check**: Verify Wireshark and required tools are installed
+- ✅ **Smart Detection**: Auto-detect platform and provide specific guidance
+- ✅ **Plugin Installation**: Copy plugin to correct directory with proper permissions
+- ✅ **Profile Creation**: Create "Vulnerability Analysis" Wireshark profile
+- ✅ **Column Configuration**: Pre-configure CVSS Score, CVE ID, and Service Description columns
+- ✅ **Color Filters**: Set up automatic highlighting for vulnerability severity levels
+- ✅ **Recent Filters**: Add useful display filters to filter history
+- ✅ **Verification**: Confirm installation and provide troubleshooting guidance
+- ✅ **Safety**: Backup existing files and provide detailed instructions
+
+## 📚 **Platform-Specific Guides**
+
+For detailed platform-specific instructions, troubleshooting, and advanced options:
+
+- **📖 macOS**: [Mac-Installer/README.md](./Mac-Installer/README.md)
+- **📖 Linux**: [Linux-Installer/README.md](./Linux-Installer/README.md)  
+- **📖 Windows**: [Windows-Installer/README.md](./Windows-Installer/README.md)
+
+## ⚙️ **Manual Installation (All Platforms)**
+
+If you prefer manual installation or our automated installers don't work for your setup:
+
+### **1. Install Plugin File**
+```bash
+# macOS/Linux
+mkdir -p ~/.local/lib/wireshark/plugins
+cp vulners_correlator_final.lua ~/.local/lib/wireshark/plugins/
+chmod 644 ~/.local/lib/wireshark/plugins/vulners_correlator_final.lua
+```
+
+```powershell
+# Windows (PowerShell)
+New-Item -Path "$env:APPDATA\Wireshark\plugins" -ItemType Directory -Force
+Copy-Item "vulners_correlator_final.lua" "$env:APPDATA\Wireshark\plugins\"
+```
+
+### **2. Configure Wireshark Profile**
 1. Launch Wireshark
 2. Go to **Edit → Configuration Profiles**
-3. Create a new profile: "Vulnerability Analysis"
-4. Add columns to packet list:
+3. Create a new profile: **"Vulnerability Analysis"**
+4. Add these columns to the packet list:
    - **CVSS Score**: `%Cus:vulners.cvss_high:0:R`
    - **CVE ID**: `%Cus:vulners.cve_id:0:R`
    - **Service Description**: `%Cus:vulners.service_desc:0:R`
+5. Set up color filters for vulnerability highlighting (see platform guides)
 
 ## 📡 **Usage Workflow**
 
@@ -109,12 +163,21 @@ nmap -sV --script vuln,vulners --script-args vulners.shodan-api-key=YOUR_KEY \
 
 ### 2. **Configure Plugin**
 Update the XML file path in the plugin:
+
 ```bash
-# Edit the plugin file
+# macOS/Linux
 nano ~/.local/lib/wireshark/plugins/vulners_correlator_final.lua
 
 # Update line 5 with your scan file location:
 prefs.xml_path = "/path/to/your/vulners_scan.xml"
+```
+
+```powershell
+# Windows - Edit with Notepad
+notepad "$env:APPDATA\Wireshark\plugins\vulners_correlator_final.lua"
+
+# Update line 5 (use double backslashes in Windows paths):
+prefs.xml_path = "C:\\path\\to\\your\\vulners_scan.xml"
 ```
 
 ### 3. **Analyze Traffic**
@@ -258,7 +321,7 @@ No. | Time | Source | Destination | CVSS Score | CVE ID | Service Description | 
 ## 🔧 **Configuration**
 
 ### **Plugin Settings**
-Edit `vulners_correlator_final.lua` to customize:
+Edit the plugin file to customize:
 - XML file path location
 - Debug logging levels
 - Column display preferences
@@ -270,7 +333,7 @@ The "Vulnerability Analysis" profile includes:
 - Useful display filters in recent history
 - Optimized layout for security analysis
 
-## 📚 **File Locations**
+## 📁 **File Locations Reference**
 
 ### **macOS**
 - Plugin: `~/.local/lib/wireshark/plugins/vulners_correlator_final.lua`
@@ -290,16 +353,35 @@ The "Vulnerability Analysis" profile includes:
 - Verify plugin file location and permissions
 - Check **Help → About → Plugins** in Wireshark
 - Ensure file is named exactly: `vulners_correlator_final.lua`
+- Restart Wireshark completely
 
 ### **No Vulnerability Data**
 - Confirm XML file path in plugin configuration
 - Verify XML contains nmap Vulners script output
 - Check Wireshark console for error messages
+- Test XML file accessibility and format
 
 ### **Display Filters Not Working**
 - Use correct field names (see Field Reference above)
 - Remember: CVSS uses numeric comparisons, CVE/Service use string operations
 - Test basic filter first: `vulners.cvss_high > 0`
+- Ensure you're using the "Vulnerability Analysis" profile
+
+### **Platform-Specific Issues**
+
+#### **macOS**
+- Plugin directory: `~/.local/lib/wireshark/plugins/`
+- Check file permissions: `chmod 644 vulners_correlator_final.lua`
+
+#### **Linux**
+- Add user to wireshark group: `sudo usermod -a -G wireshark $USER`
+- Check distribution-specific Wireshark installation
+- Verify network capture permissions
+
+#### **Windows**
+- Check PowerShell execution policy: `Get-ExecutionPolicy`
+- Temporarily disable antivirus if files are blocked
+- Use double backslashes in XML file paths: `C:\\path\\to\\file.xml`
 
 ## 🤝 **Contributing**
 
