@@ -58,7 +58,7 @@ We provide **automated installers for all major platforms** to make installation
 ### **🍎 macOS (Automated)**
 ```bash
 # 1. Download/clone this repository
-git clone https://github.com/yourusername/wireshark-vulnerability-correlator.git
+git clone https://github.com/netwho/wireshark-vulnerability-correlator.git
 
 # 2. Navigate to the Mac installer
 cd wireshark-vulnerability-correlator/Mac-Installer/
@@ -70,7 +70,7 @@ cd wireshark-vulnerability-correlator/Mac-Installer/
 ### **🐧 Linux (Automated)**
 ```bash
 # 1. Download/clone this repository
-git clone https://github.com/yourusername/wireshark-vulnerability-correlator.git
+git clone https://github.com/netwho/wireshark-vulnerability-correlator.git
 
 # 2. Navigate to the Linux installer
 cd wireshark-vulnerability-correlator/Linux-Installer/
@@ -89,7 +89,7 @@ chmod +x install_vulners_plugin_linux.sh
 ### **🪟 Windows (Automated)**
 ```powershell
 # 1. Download/clone this repository
-git clone https://github.com/yourusername/wireshark-vulnerability-correlator.git
+git clone https://github.com/netwho/wireshark-vulnerability-correlator.git
 cd wireshark-vulnerability-correlator\Windows-Installer\
 
 # 2. Run the PowerShell installer
