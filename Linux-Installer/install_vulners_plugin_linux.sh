@@ -300,25 +300,27 @@ verify_installation() {
         print_error "Profile directory missing!"
         return 1
     fi
-    
-    # Check Lua syntax (basic check)
-    if command -v lua >/dev/null 2>&1; then
-        if lua -c "$WIRESHARK_PLUGINS_DIR/$PLUGIN_NAME" 2>/dev/null; then
-            print_success "Plugin Lua syntax verified"
-        else
-            print_error "Plugin has Lua syntax errors!"
-            return 1
-        fi
-    elif command -v lua5.1 >/dev/null 2>&1; then
-        if lua5.1 -c "$WIRESHARK_PLUGINS_DIR/$PLUGIN_NAME" 2>/dev/null; then
-            print_success "Plugin Lua syntax verified (lua5.1)"
-        else
-            print_error "Plugin has Lua syntax errors!"
-            return 1
-        fi
+  # Check Lua syntax (compile only; don't execute)
+   if command -v luac >/dev/null 2>&1; then
+    if luac -p "$WIRESHARK_PLUGINS_DIR/$PLUGIN_NAME"; then
+        print_success "Plugin Lua syntax verified"
     else
-        print_info "Lua not available for syntax checking (optional)"
+        print_error "Plugin has Lua syntax errors!"
+        return 1
     fi
+   elif command -v lua >/dev/null 2>&1; then
+    # loadfile compiles without executing the script
+    if lua -e 'local f,arg1=loadfile(...); if not f then os.exit(1) end' "$WIRESHARK_PLUGINS_DIR/$PLUGIN_NAME"; then
+        print_success "Plugin Lua syntax verified"
+    else
+        print_error "Plugin has Lua syntax errors!"
+        return 1
+    fi
+else
+    print_info "Lua/luac not available for syntax checking (optional)"
+fi
+  
+  
 }
 
 # Check user permissions for Wireshark
