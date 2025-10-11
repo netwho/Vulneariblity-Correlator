@@ -51,6 +51,36 @@ Transform your network analysis workflow by automatically identifying vulnerable
 - **Network capture files** (pcap/pcapng)
 - **Vulnerability scan results** (XML format from nmap Vulners)
 
+## 🧪 **Sample Files & Demo**
+
+**Try it immediately with included sample data!** We've provided test files so you can see the plugin in action right away.
+
+### **Quick Demo Setup**
+```bash
+# 1. Clone the repository
+git clone https://github.com/netwho/wireshark-vulnerability-correlator.git
+cd wireshark-vulnerability-correlator
+
+# 2. Use the sample files in the samples/ directory:
+# - Metasploit_ProFTP.pcapng - Real network capture with vulnerable ProFTP traffic  
+# - vulners_scan.xml - Nmap vulnerability scan results with CVE data
+
+# 3. Configure plugin to use sample data
+nano ~/.local/lib/wireshark/plugins/vulners_correlator_final.lua
+# Update: prefs.xml_path = "/path/to/samples/vulners_scan.xml"
+```
+
+### **What You'll See**
+- 🔴 **High-severity vulnerabilities** (CVSS ≥ 7.0) highlighted in red
+- 🎯 **CVE identifiers** displayed directly in packet columns  
+- 🖥️ **Service details** showing "ProFTPD 1.3.5" with vulnerability context
+- 📊 **Real correlation** between network traffic and vulnerability scan data
+
+### **Sample Analysis Results**
+The demo shows ProFTP service communication correlated with **CVE-2015-3306** (CVSS: 9.8), demonstrating how the plugin identifies vulnerable services in real network traffic.
+
+**📖 For detailed sample usage instructions and advanced examples:** [samples/README.md](./samples/README.md)
+
 ## 🖥️ **Installation**
 
 We provide **automated installers for all major platforms** to make installation as easy as possible:
