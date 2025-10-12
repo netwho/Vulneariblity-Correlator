@@ -1,0 +1,606 @@
+IP,Hostname,Port,Port Protocol,CVSS,Severity,QoD,Solution Type,NVT Name,Summary,Specific Result,NVT OID,CVEs,Task ID,Task Name,Timestamp,Result ID,Impact,Solution,Affected Software/OS,Vulnerability Insight,Vulnerability Detection Method,Product Detection Result,BIDs,CERTs,Other References
+      172.28.184.18,metasplotable3.netwho.lan,80,tcp,10.0,High,95,"VendorFix","Drupal Coder RCE Vulnerability (SA-CONTRIB-2016-039) - Active Check","Drupal is prone to a remote code execution (RCE)
+  vulnerability.","Vulnerable URL: http://metasplotable3.netwho.lan/drupal/sites/all/modules/coder/coder_upgrade/scripts/coder_upgrade.run.php
+",1.3.6.1.4.1.25623.1.0.105818,"",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,3584bd43-d08c-4243-805a-0719e7dfaff3,"","Install the latest version.","","The Coder module checks your Drupal code against coding
+  standards and other best practices. It can also fix coding standard violations and perform basic
+  upgrades on modules. The module doesn't sufficiently validate user inputs in a script file that
+  has the php extension. A malicious unauthenticated user can make requests directly to this file to
+  execute arbitrary php code.","Checks for known error message from affected modules.
+Details:
+Drupal Coder RCE Vulnerability (SA-CONTRIB-2016-039) - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.105818)
+Version used: 2023-07-21T05:05:22Z
+","","","",""
+172.28.184.18,metasplotable3.netwho.lan,21,tcp,10.0,High,99,"VendorFix","ProFTPD mod_copy Unauthenticated Copying Of Files Via SITE CPFR/CPTO Vulnerability (Apr 2015) - Active Check","ProFTPD is prone to an unauthenticated copying of files
+  vulnerability.","The target was found to be vulnerable
+",1.3.6.1.4.1.25623.1.0.105254,"CVE-2015-3306",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,3e590a66-5320-4d43-a526-4f5e2d5088d8,"Under some circumstances this could result in remote code
+  execution.","Ask the vendor for an update.","","","Tries to copy /etc/passwd to /tmp/passwd.copy with SITE
+  CPFR/CPTO command.
+Details:
+ProFTPD 'mod_copy' Unauthenticated Copying Of Files Via SITE CPFR/CPTO Vulne...
+(OID: 1.3.6.1.4.1.25623.1.0.105254)
+Version used: 2025-09-24T05:39:03Z
+","","","DFN-CERT-2015-0839,DFN-CERT-2015-0576,CB-K15/0791,CB-K15/0553",""
+172.28.184.18,metasplotable3.netwho.lan,,,10.0,High,80,"Mitigation","Operating System (OS) End of Life (EOL) Detection","The Operating System (OS) on the remote host has reached the end
+  of life (EOL) and should not be used anymore.","The ""Ubuntu"" Operating System on the remote host has reached the end of life.
+
+CPE:               cpe:/o:canonical:ubuntu_linux:14.04
+Installed version,
+build or SP:       14.04
+EOL date:          2024-04-01
+EOL info:          https://wiki.ubuntu.com/Releases
+",1.3.6.1.4.1.25623.1.0.103674,"",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,72be2a6e-ec09-4498-9cdc-d0eea17d8ddd,"An EOL version of an OS is not receiving any security updates
+  from the vendor. Unfixed security vulnerabilities might be leveraged by an attacker to compromise
+  the security of this host.","Update the OS on the remote host to a version which is still
+  supported and receiving security updates by the vendor.
+
+  Note / Important: Please create an override for this result if the target host is a:
+
+  - Windows system with Extended Security Updates (ESU)
+
+  - System with additional 3rd-party / non-vendor security updates like e.g. from 'TuxCare',
+  'Freexian Extended LTS' or similar","","","Checks if an EOL version of an OS is present on the target
+  host.
+Details:
+Operating System (OS) End of Life (EOL) Detection
+(OID: 1.3.6.1.4.1.25623.1.0.103674)
+Version used: 2025-05-21T05:40:19Z
+","Product: cpe:/o:canonical:ubuntu_linux:14.04
+Method: OS Detection Consolidation and Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.105937)
+","","",""
+172.28.184.18,metasplotable3.netwho.lan,22,tcp,9.8,High,95,"Mitigation","SSH Brute Force Logins With Default Credentials Reporting","It was possible to login into the remote SSH server using
+  default credentials.","It was possible to login with the following credentials <User>:<Password>
+
+vagrant:vagrant
+",1.3.6.1.4.1.25623.1.0.103239,"CVE-1999-0501,CVE-1999-0502,CVE-1999-0507,CVE-1999-0508,CVE-2005-1379,CVE-2006-5288,CVE-2009-3710,CVE-2012-4577,CVE-2016-1000245,CVE-2017-16523,CVE-2020-29583,CVE-2020-9473,CVE-2021-27797,CVE-2023-1944,CVE-2024-22902,CVE-2024-31970,CVE-2024-46328",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,beefa0e0-03cc-4eb9-96fc-f7d3aec72c2c,"This issue may be exploited by a remote attacker to e.g. gain
+  access to sensitive information or modify system configuration.","Change the password as soon as possible.","The following products are known to use the default credentials
+  checked by the VT 'SSH Brute Force Logins With Default Credentials' (OID:
+  1.3.6.1.4.1.25623.1.0.108013) used for this reporting:
+
+  - CVE-2017-16523: MitraStar GPT-2541GNAC (HGU) 1.00(VNJ0)b1 and DSL-100HN-T1 ES_113WJY0b16 devices
+
+  - CVE-2020-29583: Zyxel Firewall / AP Controller
+
+  - CVE-2020-9473: S. Siedle & Soehne SG 150-0 Smart Gateway before 1.2.4
+
+  - CVE-2021-27797: Brocade Fabric OS
+
+  - CVE-2023-1944: minikube 1.29.0 and probably prior
+
+  - CVE-2024-22902: Vinchin Backup & Recovery
+
+  - CVE-2024-31970: AdTran SRG 834-5 HDC17600021F1 devices (with SmartOS 11.1.1.1) during a window
+  of time when the device is being set up
+
+  - CVE-2024-46328: VONETS VAP11G-300 v3.3.23.6.9
+
+  - Various additional products like e.g. Ubiquiti EdgeMax / EdgeRouter, Crestron AM-100 and similar
+  for which no CVE was assigned (See 'default_credentials.inc' file on the file system for a full
+  list)
+
+  Other products might be affected as well.","As the VT 'SSH Brute Force Logins With Default Credentials'
+  (OID: 1.3.6.1.4.1.25623.1.0.108013) might run into a timeout the actual reporting of this
+  vulnerability takes place in this VT instead.","Reports default credentials detected by the VT
+  'SSH Brute Force Logins With Default Credentials' (OID: 1.3.6.1.4.1.25623.1.0.108013).
+Details:
+SSH Brute Force Logins With Default Credentials Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.103239)
+Version used: 2025-04-04T05:39:39Z
+","","","",""
+172.28.184.18,metasplotable3.netwho.lan,631,tcp,7.5,High,98,"Mitigation","SSL/TLS: Report Vulnerable Cipher Suites for HTTPS","This routine reports all SSL/TLS cipher suites accepted by a
+  service where attack vectors exists only on HTTPS services.","'Vulnerable' cipher suites accepted by this service via the TLSv1.0 protocol:
+
+TLS_RSA_WITH_3DES_EDE_CBC_SHA (SWEET32)
+
+'Vulnerable' cipher suites accepted by this service via the TLSv1.1 protocol:
+
+TLS_RSA_WITH_3DES_EDE_CBC_SHA (SWEET32)
+
+'Vulnerable' cipher suites accepted by this service via the TLSv1.2 protocol:
+
+TLS_RSA_WITH_3DES_EDE_CBC_SHA (SWEET32)
+
+
+",1.3.6.1.4.1.25623.1.0.108031,"CVE-2016-2183,CVE-2016-6329,CVE-2020-12872",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,40aec264-f479-4863-9a3b-3cc9804c99d7,"This could allow remote attackers to obtain sensitive information
+  or have other, unspecified impacts.","The configuration of this services should be changed so
+  that it does not accept the listed cipher suites anymore.
+
+  Please see the references for more resources supporting you with this task.","All services accepting vulnerable SSL/TLS cipher suites via
+  HTTPS.","These rules are applied for the evaluation of the vulnerable
+  cipher suites:
+
+  - 64-bit block cipher 3DES vulnerable to the SWEET32 attack (CVE-2016-2183).","Checks previous collected cipher suites.
+Details:
+SSL/TLS: Report Vulnerable Cipher Suites for HTTPS
+(OID: 1.3.6.1.4.1.25623.1.0.108031)
+Version used: 2025-03-27T05:38:50Z
+","Product: cpe:/a:ietf:transport_layer_security
+Method: SSL/TLS: Report Supported Cipher Suites
+(OID: 1.3.6.1.4.1.25623.1.0.802067)
+","","DFN-CERT-2025-0041,DFN-CERT-2021-1618,DFN-CERT-2021-0775,DFN-CERT-2021-0770,DFN-CERT-2021-0274,DFN-CERT-2020-2141,DFN-CERT-2020-0368,DFN-CERT-2019-1455,DFN-CERT-2019-0068,DFN-CERT-2018-1296,DFN-CERT-2018-0323,DFN-CERT-2017-2070,DFN-CERT-2017-1954,DFN-CERT-2017-1885,DFN-CERT-2017-1831,DFN-CERT-2017-1821,DFN-CERT-2017-1785,DFN-CERT-2017-1626,DFN-CERT-2017-1326,DFN-CERT-2017-1239,DFN-CERT-2017-1238,DFN-CERT-2017-1090,DFN-CERT-2017-1060,DFN-CERT-2017-0968,DFN-CERT-2017-0947,DFN-CERT-2017-0946,DFN-CERT-2017-0904,DFN-CERT-2017-0816,DFN-CERT-2017-0746,DFN-CERT-2017-0677,DFN-CERT-2017-0675,DFN-CERT-2017-0611,DFN-CERT-2017-0609,DFN-CERT-2017-0522,DFN-CERT-2017-0519,DFN-CERT-2017-0482,DFN-CERT-2017-0351,DFN-CERT-2017-0090,DFN-CERT-2017-0089,DFN-CERT-2017-0088,DFN-CERT-2017-0086,DFN-CERT-2016-1943,DFN-CERT-2016-1937,DFN-CERT-2016-1732,DFN-CERT-2016-1726,DFN-CERT-2016-1715,DFN-CERT-2016-1714,DFN-CERT-2016-1588,DFN-CERT-2016-1555,DFN-CERT-2016-1391,DFN-CERT-2016-1378,WID-SEC-2024-1277,WID-SEC-2024-0209,WID-SEC-2024-0064,WID-SEC-2022-2226,WID-SEC-2022-1955,CB-K21/1094,CB-K20/1023,CB-K20/0321,CB-K20/0314,CB-K20/0157,CB-K19/0618,CB-K19/0615,CB-K18/0296,CB-K17/1980,CB-K17/1871,CB-K17/1803,CB-K17/1753,CB-K17/1750,CB-K17/1709,CB-K17/1558,CB-K17/1273,CB-K17/1202,CB-K17/1196,CB-K17/1055,CB-K17/1026,CB-K17/0939,CB-K17/0917,CB-K17/0915,CB-K17/0877,CB-K17/0796,CB-K17/0724,CB-K17/0661,CB-K17/0657,CB-K17/0582,CB-K17/0581,CB-K17/0506,CB-K17/0504,CB-K17/0467,CB-K17/0345,CB-K17/0098,CB-K17/0089,CB-K17/0086,CB-K17/0082,CB-K16/1837,CB-K16/1830,CB-K16/1635,CB-K16/1630,CB-K16/1624,CB-K16/1622,CB-K16/1500,CB-K16/1465,CB-K16/1307,CB-K16/1296",""
+172.28.184.18,metasplotable3.netwho.lan,80,tcp,7.5,High,98,"VendorFix","Drupal Core SQLi Vulnerability (SA-CORE-2014-005) - Active Check","Drupal is prone to an SQL injection (SQLi) vulnerability.","Vulnerable URL: http://metasplotable3.netwho.lan/drupal/?q=node&destination=node
+",1.3.6.1.4.1.25623.1.0.105101,"CVE-2014-3704",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,2ef0beaf-aefc-4c23-9c16-f0a19f2dda25,"Exploiting this issue could allow an attacker to execute
+  arbitrary code, to gain elevated privileges and to compromise the application, access or modify
+  data, or exploit latent vulnerabilities in the underlying database.","Updates are available. Please see the references for more
+  information.","Drupal 7.x versions prior to 7.32 are vulnerable.","Drupal fails to sufficiently sanitize user-supplied data before
+  using it in an SQL query.","Sends a special crafted HTTP POST request and checks the
+  response.
+Details:
+Drupal Core SQLi Vulnerability (SA-CORE-2014-005) - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.105101)
+Version used: 2023-07-26T05:05:09Z
+","","","DFN-CERT-2014-1369,DFN-CERT-2014-0958,CB-K14/1301,CB-K14/0920",""
+172.28.184.18,metasplotable3.netwho.lan,21,tcp,7.5,High,95,"Mitigation","FTP Brute Force Logins With Default Credentials Reporting","It was possible to login into the remote FTP server using
+  weak/known credentials.","It was possible to login with the following credentials <User>:<Password>
+
+vagrant:vagrant
+",1.3.6.1.4.1.25623.1.0.108718,"CVE-1999-0501,CVE-1999-0502,CVE-1999-0507,CVE-1999-0508,CVE-2001-1594,CVE-2013-7404,CVE-2014-9198,CVE-2015-7261,CVE-2016-8731,CVE-2017-8218,CVE-2018-9068,CVE-2018-17771,CVE-2018-19063,CVE-2018-19064",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,ebe2dafe-fc08-44c3-801e-5abb6a587315,"This issue may be exploited by a remote attacker to e.g. gain
+  access to sensitive information or modify system configuration.","Change the password as soon as possible.","","The following devices are / software is known to be affected:
+
+  - CVE-2001-1594: Codonics printer FTP service as used in GE Healthcare eNTEGRA P&R
+
+  - CVE-2013-7404: GE Healthcare Discovery NM 750b
+
+  - CVE-2014-9198: Schneider Electric ETG3000 FactoryCast HMI gateways
+
+  - CVE-2015-7261: QNAP iArtist Lite distributed with QNAP Signage Station
+
+  - CVE-2016-8731: Foscam C1 devices
+
+  - CVE-2017-8218: vsftpd on TP-Link C2 and C20i devices
+
+  - CVE-2018-9068: IMM2 for IBM and Lenovo System x
+
+  - CVE-2018-17771: Ingenico Telium 2 PoS terminals
+
+  - CVE-2018-19063, CVE-2018-19064: Foscam C2 and Opticam i5 devices
+
+  Note: As the VT 'FTP Brute Force Logins With Default Credentials' (OID:
+  1.3.6.1.4.1.25623.1.0.108717) might run into a timeout the actual reporting of this vulnerability
+  takes place in this VT instead.","Reports weak/known credentials detected by the VT
+  'FTP Brute Force Logins With Default Credentials' (OID: 1.3.6.1.4.1.25623.1.0.108717).
+Details:
+FTP Brute Force Logins With Default Credentials Reporting
+(OID: 1.3.6.1.4.1.25623.1.0.108718)
+Version used: 2025-05-13T05:41:39Z
+","","","",""
+172.28.184.18,metasplotable3.netwho.lan,80,tcp,7.5,High,99,"Mitigation","Test HTTP dangerous methods","Misconfigured web servers allows remote clients to perform
+  dangerous HTTP methods such as PUT and DELETE.","We could upload the following files via the PUT method at this web server:
+
+http://metasplotable3.netwho.lan/uploads/puttest123744309.html
+http://metasplotable3.netwho.lan/uploads/qExIwckK.htm/puttest843171865.html
+
+We could delete the following files via the DELETE method at this web server:
+
+http://metasplotable3.netwho.lan/uploads/puttest123744309.html
+http://metasplotable3.netwho.lan/uploads/qExIwckK.htm/puttest843171865.html
+
+
+",1.3.6.1.4.1.25623.1.0.10498,"",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,652ea28d-36ae-4dc4-a146-494eb4db603d,"'- Enabled PUT method: This might allow an attacker to upload
+  and run arbitrary code on this web server.
+
+  - Enabled DELETE method: This might allow an attacker to delete additional files on this web
+  server.","Use access restrictions to these dangerous HTTP methods
+  or disable them completely.","Web servers with enabled PUT and/or DELETE methods.","","Checks if dangerous HTTP methods such as PUT and DELETE are
+  enabled and can be misused to upload or delete files.
+Details:
+Test HTTP dangerous methods
+(OID: 1.3.6.1.4.1.25623.1.0.10498)
+Version used: 2023-08-01T13:29:10Z
+","","","",""
+172.28.184.18,metasplotable3.netwho.lan,80,tcp,6.1,Medium,80,"VendorFix","jQuery < 1.9.0 XSS Vulnerability","jQuery is prone to a cross-site scripting (XSS)
+  vulnerability.","Installed version: 1.6.2
+Fixed version:     1.9.0
+Installation
+path / port:       /phpmyadmin/js/jquery/jquery-1.6.2.js
+
+Detection info (see OID: 1.3.6.1.4.1.25623.1.0.150658 for more info):
+- Identified file: http://metasplotable3.netwho.lan/phpmyadmin/js/jquery/jquery-1.6.2.js
+- Referenced at:   http://metasplotable3.netwho.lan/phpmyadmin/
+",1.3.6.1.4.1.25623.1.0.141636,"CVE-2012-6708",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,fa9fe757-4e1e-4a2c-ac60-90428d71953e,"","Update to version 1.9.0 or later.","jQuery prior to version 1.9.0.","The jQuery(strInput) function does not differentiate selectors
+  from HTML in a reliable fashion. In vulnerable versions, jQuery determined whether the input was
+  HTML by looking for the '<' character anywhere in the string, giving attackers more flexibility
+  when attempting to construct a malicious payload. In fixed versions, jQuery only deems the input
+  to be HTML if it explicitly starts with the '<' character, limiting exploitability only to
+  attackers who can control the beginning of a string, which is far less common.","Checks if a vulnerable version is present on the target host.
+Details:
+jQuery < 1.9.0 XSS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.141636)
+Version used: 2023-07-14T05:06:08Z
+","","","DFN-CERT-2025-1803,DFN-CERT-2023-1197,DFN-CERT-2020-0590,WID-SEC-2022-0673,CB-K22/0045,CB-K18/1131",""
+172.28.184.18,metasplotable3.netwho.lan,80,tcp,6.1,Medium,80,"VendorFix","jQuery < 1.9.0 XSS Vulnerability","jQuery is prone to a cross-site scripting (XSS)
+  vulnerability.","Installed version: 1.6.2
+Fixed version:     1.9.0
+Installation
+path / port:       /phpmyadmin/setup/../js/jquery/jquery-1.6.2.js
+
+Detection info (see OID: 1.3.6.1.4.1.25623.1.0.150658 for more info):
+- Identified file: http://metasplotable3.netwho.lan/phpmyadmin/setup/../js/jquery/jquery-1.6.2.js
+- Referenced at:   http://metasplotable3.netwho.lan/phpmyadmin/setup/
+",1.3.6.1.4.1.25623.1.0.141636,"CVE-2012-6708",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,6d052c94-eddf-4f31-831a-046eb39dde23,"","Update to version 1.9.0 or later.","jQuery prior to version 1.9.0.","The jQuery(strInput) function does not differentiate selectors
+  from HTML in a reliable fashion. In vulnerable versions, jQuery determined whether the input was
+  HTML by looking for the '<' character anywhere in the string, giving attackers more flexibility
+  when attempting to construct a malicious payload. In fixed versions, jQuery only deems the input
+  to be HTML if it explicitly starts with the '<' character, limiting exploitability only to
+  attackers who can control the beginning of a string, which is far less common.","Checks if a vulnerable version is present on the target host.
+Details:
+jQuery < 1.9.0 XSS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.141636)
+Version used: 2023-07-14T05:06:08Z
+","","","DFN-CERT-2025-1803,DFN-CERT-2023-1197,DFN-CERT-2020-0590,WID-SEC-2022-0673,CB-K22/0045,CB-K18/1131",""
+172.28.184.18,metasplotable3.netwho.lan,22,tcp,5.3,Medium,80,"Mitigation","Weak Host Key Algorithm(s) (SSH)","The remote SSH server is configured to allow / support weak host
+  key algorithm(s).","The remote SSH server supports the following weak host key algorithm(s):
+
+host key algorithm | Description
+-----------------------------------------------------------------------------------------
+ssh-dss            | Digital Signature Algorithm (DSA) / Digital Signature Standard (DSS)
+",1.3.6.1.4.1.25623.1.0.117687,"",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,fb9c4a5e-1f8e-47ec-ae2a-6858da762b03,"","Disable the reported weak host key algorithm(s).","","","Checks the supported host key algorithms of the remote SSH
+  server.
+
+  Currently weak host key algorithms are defined as the following:
+
+  - ssh-dss: Digital Signature Algorithm (DSA) / Digital Signature Standard (DSS)
+Details:
+Weak Host Key Algorithm(s) (SSH)
+(OID: 1.3.6.1.4.1.25623.1.0.117687)
+Version used: 2024-06-14T05:05:48Z
+","Product: cpe:/a:ietf:secure_shell_protocol
+Method: SSH Protocol Algorithms Supported
+(OID: 1.3.6.1.4.1.25623.1.0.105565)
+","","",""
+172.28.184.18,metasplotable3.netwho.lan,22,tcp,5.3,Medium,80,"Mitigation","Weak Key Exchange (KEX) Algorithm(s) Supported (SSH)","The remote SSH server is configured to allow / support weak key
+  exchange (KEX) algorithm(s).","The remote SSH server supports the following weak KEX algorithm(s):
+
+KEX algorithm                      | Reason
+-------------------------------------------------------------------------------------------
+diffie-hellman-group-exchange-sha1 | Using SHA-1
+diffie-hellman-group1-sha1         | Using Oakley Group 2 (a 1024-bit MODP group) and SHA-1
+",1.3.6.1.4.1.25623.1.0.150713,"",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,13c51c06-05fa-440a-95c0-3bd73fd2486c,"An attacker can quickly break individual connections.","Disable the reported weak KEX algorithm(s)
+
+  - 1024-bit MODP group / prime KEX algorithms:
+
+  Alternatively use elliptic-curve Diffie-Hellmann in general, e.g. Curve 25519.","","'- 1024-bit MODP group / prime KEX algorithms:
+
+  Millions of HTTPS, SSH, and VPN servers all use the same prime numbers for Diffie-Hellman key
+  exchange. Practitioners believed this was safe as long as new key exchange messages were generated
+  for every connection. However, the first step in the number field sieve-the most efficient
+  algorithm for breaking a Diffie-Hellman connection-is dependent only on this prime.
+
+  A nation-state can break a 1024-bit prime.","Checks the supported KEX algorithms of the remote SSH server.
+
+  Currently weak KEX algorithms are defined as the following:
+
+  - non-elliptic-curve Diffie-Hellmann (DH) KEX algorithms with 1024-bit MODP group / prime
+
+  - ephemerally generated key exchange groups uses SHA-1
+
+  - using RSA 1024-bit modulus key
+Details:
+Weak Key Exchange (KEX) Algorithm(s) Supported (SSH)
+(OID: 1.3.6.1.4.1.25623.1.0.150713)
+Version used: 2024-06-14T05:05:48Z
+","Product: cpe:/a:ietf:secure_shell_protocol
+Method: SSH Protocol Algorithms Supported
+(OID: 1.3.6.1.4.1.25623.1.0.105565)
+","","",""
+172.28.184.18,metasplotable3.netwho.lan,80,tcp,5.0,Medium,95,"WillNotFix","Drupal 7.0 Information Disclosure Vulnerability - Active Check","Drupal is prone to an information disclosure vulnerability.","Vulnerable URL: http://metasplotable3.netwho.lan/drupal/modules/simpletest/tests/upgrade/drupal-6.upload.database.php
+",1.3.6.1.4.1.25623.1.0.902574,"CVE-2011-3730",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,6312e874-7f29-4592-b5b5-ae3bb3416bbd,"Successful exploitation will allow attacker to obtain sensitive
+  information that could aid in further attacks.","No known solution was made available for at least one year
+  since the disclosure of this vulnerability. Likely none will be provided anymore. General solution
+  options are to upgrade to a newer release, disable respective features, remove the product or
+  replace the product by another one.","Drupal version 7.0 is known to be affected.","The flaw is due to insufficient error checking, allows remote
+  attackers to obtain sensitive information via a direct request to a .php file, which reveals the
+  installation path in an error message.","
+Details:
+Drupal 7.0 Information Disclosure Vulnerability - Active Check
+(OID: 1.3.6.1.4.1.25623.1.0.902574)
+Version used: 2021-12-01T11:10:56Z
+","","","",""
+172.28.184.18,metasplotable3.netwho.lan,80,tcp,5.0,Medium,80,"Mitigation","Unprotected Web App / Device Installers (HTTP)","The script attempts to identify installation/setup pages of
+  various web apps/devices that are publicly accessible and not protected by e.g. account
+  restrictions or having their setup finished.","The following web app/device installers are unprotected/have not finished their setup and are publicly accessible (URL:Description):
+
+http://metasplotable3.netwho.lan/phpmyadmin/setup/index.php - CubeCart / phpMyAdmin installer
+",1.3.6.1.4.1.25623.1.0.107307,"",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,a6781f8b-b9c3-4b03-9469-6185a70c15fe,"It is possible to install or reconfigure the software. In doing
+  so, the attacker could overwrite existing configurations. It could be possible for the attacker to
+  gain access to the base system","Setup and/or installation pages for Web Apps should not be
+  publicly accessible via a web server. Restrict access to it, remove it completely or finish the
+  setup of the application / device.","","","Enumerate the remote web server and check if unprotected
+  web apps/devices are accessible for installation.
+Details:
+Unprotected Web App / Device Installers (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.107307)
+Version used: 2025-07-22T05:43:35Z
+","","","",""
+172.28.184.18,metasplotable3.netwho.lan,80,tcp,5.0,Medium,70,"Mitigation","Sensitive File Disclosure (HTTP)","The script attempts to identify files containing sensitive data
+  at the remote web server.","The following files containing sensitive information were identified:
+
+Description:   Microsoft IIS / ASP.NET Core Module web.config file accessible. This could contain sensitive information about the structure of the application / web server and shouldn't be accessible.
+Match:         <configuration>
+  <system.webServer>
+Used regex:    ^\s*<(configuration|system\.web(Server)?)>
+Extra match 1:   </system.webServer>
+</configuration>
+Used regex:    ^\s*</(configuration|system\.web(Server)?)>
+URL:           http://metasplotable3.netwho.lan/drupal/web.config
+",1.3.6.1.4.1.25623.1.0.107305,"CVE-2017-16894",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,4537cbf3-4f66-43a5-be45-332975024142,"Based on the information provided in these files an attacker
+  might be able to gather additional info and/or sensitive data like usernames and passwords.","The sensitive files shouldn't be accessible via a web server.
+  Restrict access to it or remove it completely.","","Currently the script is checking for files like e.g.:
+
+  - Software (Blog, CMS) configuration or log files
+
+  - Web / application server configuration / password files (.htaccess, .htpasswd, web.config,
+  web.xml, ...)
+
+  - Cloud (e.g. AWS) configuration files
+
+  - Files containing API keys for services / providers
+
+  - Database backup files
+
+  - Editor / history files
+
+  - SSH or SSL/TLS Private Keys
+
+  - CVE-2017-16894: Laravel framework environment/.env files","Enumerate the remote web server and check if sensitive files
+  are accessible.
+Details:
+Sensitive File Disclosure (HTTP)
+(OID: 1.3.6.1.4.1.25623.1.0.107305)
+Version used: 2025-05-09T15:42:11Z
+","","","",""
+172.28.184.18,metasplotable3.netwho.lan,21,tcp,4.8,Medium,70,"Mitigation","FTP Unencrypted Cleartext Login","The remote host is running a FTP service that allows cleartext logins over
+  unencrypted connections.","The remote FTP service accepts logins without a previous sent 'AUTH TLS' command. Response(s):
+
+Non-anonymous sessions: 331 Password required for openvasvt
+Anonymous sessions:     331 Anonymous login ok, send your complete email address as your password
+",1.3.6.1.4.1.25623.1.0.108528,"",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,bd24d5be-8fcc-4efe-9e23-f507981cd5d5,"An attacker can uncover login names and passwords by sniffing traffic to the
+  FTP service.","Enable FTPS or enforce the connection via the 'AUTH TLS' command. Please see
+  the manual of the FTP service for more information.","","","Tries to login to a non FTPS enabled FTP service without sending a
+  'AUTH TLS' command first and checks if the service is accepting the login without enforcing the use of
+  the 'AUTH TLS' command.
+Details:
+FTP Unencrypted Cleartext Login
+(OID: 1.3.6.1.4.1.25623.1.0.108528)
+Version used: 2023-12-20T05:05:58Z
+","","","",""
+172.28.184.18,metasplotable3.netwho.lan,80,tcp,4.8,Medium,80,"Workaround","Cleartext Transmission of Sensitive Information via HTTP","The host / application transmits sensitive information (username, passwords) in
+  cleartext via HTTP.","The following input fields were identified (URL:input name):
+
+http://metasplotable3.netwho.lan/drupal/:pass
+http://metasplotable3.netwho.lan/drupal/?D=A:pass
+http://metasplotable3.netwho.lan/payroll_app.php:password
+http://metasplotable3.netwho.lan/phpmyadmin/:pma_password
+http://metasplotable3.netwho.lan/phpmyadmin/?D=A:pma_password
+http://metasplotable3.netwho.lan/phpmyadmin/changelog.php:pma_password
+http://metasplotable3.netwho.lan/phpmyadmin/index.php:pma_password
+http://metasplotable3.netwho.lan/phpmyadmin/license.php:pma_password
+http://metasplotable3.netwho.lan/phpmyadmin/url.php:pma_password
+",1.3.6.1.4.1.25623.1.0.108440,"",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,2596caae-c882-4624-9511-e180f34b66fa,"An attacker could use this situation to compromise or eavesdrop on the
+  HTTP communication between the client and the server using a man-in-the-middle attack to get access to
+  sensitive data like usernames or passwords.","Enforce the transmission of sensitive data via an encrypted SSL/TLS connection.
+  Additionally make sure the host / application is redirecting all users to the secured SSL/TLS connection before
+  allowing to input sensitive data into the mentioned functions.","Hosts / applications which doesn't enforce the transmission of sensitive data via an
+  encrypted SSL/TLS connection.","","Evaluate previous collected information and check if the host / application is not
+  enforcing the transmission of sensitive data via an encrypted SSL/TLS connection.
+
+  The script is currently checking the following:
+
+  - HTTP Basic Authentication (Basic Auth)
+
+  - HTTP Forms (e.g. Login) with input field of type 'password'
+Details:
+Cleartext Transmission of Sensitive Information via HTTP
+(OID: 1.3.6.1.4.1.25623.1.0.108440)
+Version used: 2023-09-07T05:05:21Z
+","","","",""
+172.28.184.18,metasplotable3.netwho.lan,22,tcp,4.3,Medium,80,"Mitigation","Weak Encryption Algorithm(s) Supported (SSH)","The remote SSH server is configured to allow / support weak
+  encryption algorithm(s).","The remote SSH server supports the following weak client-to-server encryption algorithm(s):
+
+3des-cbc
+aes128-cbc
+aes192-cbc
+aes256-cbc
+arcfour
+arcfour128
+arcfour256
+blowfish-cbc
+cast128-cbc
+rijndael-cbc@lysator.liu.se
+
+
+The remote SSH server supports the following weak server-to-client encryption algorithm(s):
+
+3des-cbc
+aes128-cbc
+aes192-cbc
+aes256-cbc
+arcfour
+arcfour128
+arcfour256
+blowfish-cbc
+cast128-cbc
+rijndael-cbc@lysator.liu.se
+",1.3.6.1.4.1.25623.1.0.105611,"",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,2d13870c-9f92-41f5-a8f7-f552eb9dab70,"","Disable the reported weak encryption algorithm(s).","","'- The 'arcfour' cipher is the Arcfour stream cipher with 128-bit
+  keys. The Arcfour cipher is believed to be compatible with the RC4 cipher [SCHNEIER]. Arcfour
+  (and RC4) has problems with weak keys, and should not be used anymore.
+
+  - The 'none' algorithm specifies that no encryption is to be done. Note that this method provides
+  no confidentiality protection, and it is NOT RECOMMENDED to use it.
+
+  - A vulnerability exists in SSH messages that employ CBC mode that may allow an attacker to
+  recover plaintext from a block of ciphertext.","Checks the supported encryption algorithms (client-to-server
+  and server-to-client) of the remote SSH server.
+
+  Currently weak encryption algorithms are defined as the following:
+
+  - Arcfour (RC4) cipher based algorithms
+
+  - 'none' algorithm
+
+  - CBC mode cipher based algorithms
+Details:
+Weak Encryption Algorithm(s) Supported (SSH)
+(OID: 1.3.6.1.4.1.25623.1.0.105611)
+Version used: 2024-06-14T05:05:48Z
+","Product: cpe:/a:ietf:secure_shell_protocol
+Method: SSH Protocol Algorithms Supported
+(OID: 1.3.6.1.4.1.25623.1.0.105565)
+","","",""
+172.28.184.18,metasplotable3.netwho.lan,80,tcp,4.3,Medium,80,"VendorFix","jQuery < 1.6.3 XSS Vulnerability","jQuery is prone to a cross-site scripting (XSS)
+  vulnerability.","Installed version: 1.6.2
+Fixed version:     1.6.3
+Installation
+path / port:       /phpmyadmin/setup/../js/jquery/jquery-1.6.2.js
+
+Detection info (see OID: 1.3.6.1.4.1.25623.1.0.150658 for more info):
+- Identified file: http://metasplotable3.netwho.lan/phpmyadmin/setup/../js/jquery/jquery-1.6.2.js
+- Referenced at:   http://metasplotable3.netwho.lan/phpmyadmin/setup/
+",1.3.6.1.4.1.25623.1.0.141637,"CVE-2011-4969",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,d0dca3e6-2c85-4ca7-b02c-93c2379334e6,"","Update to version 1.6.3 or later.","jQuery prior to version 1.6.3.","Cross-site scripting (XSS) vulnerability in jQuery before 1.6.3,
+  when using location.hash to select elements, allows remote attackers to inject arbitrary web
+  script or HTML via a crafted tag.","Checks if a vulnerable version is present on the target host.
+Details:
+jQuery < 1.6.3 XSS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.141637)
+Version used: 2023-07-14T05:06:08Z
+","","","DFN-CERT-2017-0199,DFN-CERT-2016-0890,CB-K17/0195",""
+172.28.184.18,metasplotable3.netwho.lan,80,tcp,4.3,Medium,80,"VendorFix","jQuery < 1.6.3 XSS Vulnerability","jQuery is prone to a cross-site scripting (XSS)
+  vulnerability.","Installed version: 1.6.2
+Fixed version:     1.6.3
+Installation
+path / port:       /phpmyadmin/js/jquery/jquery-1.6.2.js
+
+Detection info (see OID: 1.3.6.1.4.1.25623.1.0.150658 for more info):
+- Identified file: http://metasplotable3.netwho.lan/phpmyadmin/js/jquery/jquery-1.6.2.js
+- Referenced at:   http://metasplotable3.netwho.lan/phpmyadmin/
+",1.3.6.1.4.1.25623.1.0.141637,"CVE-2011-4969",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,b74ada09-2ae8-402b-b696-05d874beb056,"","Update to version 1.6.3 or later.","jQuery prior to version 1.6.3.","Cross-site scripting (XSS) vulnerability in jQuery before 1.6.3,
+  when using location.hash to select elements, allows remote attackers to inject arbitrary web
+  script or HTML via a crafted tag.","Checks if a vulnerable version is present on the target host.
+Details:
+jQuery < 1.6.3 XSS Vulnerability
+(OID: 1.3.6.1.4.1.25623.1.0.141637)
+Version used: 2023-07-14T05:06:08Z
+","","","DFN-CERT-2017-0199,DFN-CERT-2016-0890,CB-K17/0195",""
+172.28.184.18,metasplotable3.netwho.lan,631,tcp,4.3,Medium,98,"Mitigation","SSL/TLS: Deprecated TLSv1.0 and TLSv1.1 Protocol Detection","It was possible to detect the usage of the deprecated TLSv1.0
+  and/or TLSv1.1 protocol on this system.","In addition to TLSv1.2+ the service is also providing the deprecated TLSv1.0 and TLSv1.1 protocols and supports one or more ciphers. Those supported ciphers can be found in the 'SSL/TLS: Report Supported Cipher Suites' (OID: 1.3.6.1.4.1.25623.1.0.802067) VT.
+",1.3.6.1.4.1.25623.1.0.117274,"CVE-2011-3389,CVE-2015-0204,CVE-2023-41928,CVE-2024-41270,CVE-2025-3200",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,29cb2857-d437-4e8a-8acf-367d895f00cb,"An attacker might be able to use the known cryptographic flaws to
+  eavesdrop the connection between clients and the service to get access to sensitive data
+  transferred within the secured connection.
+
+  Furthermore newly uncovered vulnerabilities in this protocols won't receive security updates
+  anymore.","It is recommended to disable the deprecated TLSv1.0 and/or
+  TLSv1.1 protocols in favor of the TLSv1.2+ protocols.
+
+  Please see the references for more resources supporting you with this task.","'- All services providing an encrypted communication using the
+  TLSv1.0 and/or TLSv1.1 protocols
+
+  - CVE-2023-41928: Kiloview P1 4G and P2 4G Video Encoder
+
+  - CVE-2024-41270: Gorush v1.18.4
+
+  - CVE-2025-3200: Multiple products from Wiesemann & Theis","The TLSv1.0 and TLSv1.1 protocols contain known cryptographic
+  flaws like:
+
+  - CVE-2011-3389: Browser Exploit Against SSL/TLS (BEAST)
+
+  - CVE-2015-0204: Factoring Attack on RSA-EXPORT Keys Padding Oracle On Downgraded Legacy
+  Encryption (FREAK)","Checks the used TLS protocols of the services provided by this
+  system.
+Details:
+SSL/TLS: Deprecated TLSv1.0 and TLSv1.1 Protocol Detection
+(OID: 1.3.6.1.4.1.25623.1.0.117274)
+Version used: 2025-04-30T05:39:51Z
+","Product: cpe:/a:ietf:transport_layer_security:1.0
+Method: SSL/TLS: Version Detection
+(OID: 1.3.6.1.4.1.25623.1.0.105782)
+","","DFN-CERT-2020-0177,DFN-CERT-2020-0111,DFN-CERT-2019-0068,DFN-CERT-2018-1441,DFN-CERT-2018-1408,DFN-CERT-2016-1372,DFN-CERT-2016-1164,DFN-CERT-2016-0388,DFN-CERT-2015-1853,DFN-CERT-2015-1332,DFN-CERT-2015-0884,DFN-CERT-2015-0800,DFN-CERT-2015-0758,DFN-CERT-2015-0567,DFN-CERT-2015-0544,DFN-CERT-2015-0530,DFN-CERT-2015-0396,DFN-CERT-2015-0375,DFN-CERT-2015-0374,DFN-CERT-2015-0305,DFN-CERT-2015-0199,DFN-CERT-2015-0079,DFN-CERT-2015-0021,DFN-CERT-2014-1414,DFN-CERT-2013-1847,DFN-CERT-2013-1792,DFN-CERT-2012-1979,DFN-CERT-2012-1829,DFN-CERT-2012-1530,DFN-CERT-2012-1380,DFN-CERT-2012-1377,DFN-CERT-2012-1292,DFN-CERT-2012-1214,DFN-CERT-2012-1213,DFN-CERT-2012-1180,DFN-CERT-2012-1156,DFN-CERT-2012-1155,DFN-CERT-2012-1039,DFN-CERT-2012-0956,DFN-CERT-2012-0908,DFN-CERT-2012-0868,DFN-CERT-2012-0867,DFN-CERT-2012-0848,DFN-CERT-2012-0838,DFN-CERT-2012-0776,DFN-CERT-2012-0722,DFN-CERT-2012-0638,DFN-CERT-2012-0627,DFN-CERT-2012-0451,DFN-CERT-2012-0418,DFN-CERT-2012-0354,DFN-CERT-2012-0234,DFN-CERT-2012-0221,DFN-CERT-2012-0177,DFN-CERT-2012-0170,DFN-CERT-2012-0146,DFN-CERT-2012-0142,DFN-CERT-2012-0126,DFN-CERT-2012-0123,DFN-CERT-2012-0095,DFN-CERT-2012-0051,DFN-CERT-2012-0047,DFN-CERT-2012-0021,DFN-CERT-2011-1953,DFN-CERT-2011-1946,DFN-CERT-2011-1844,DFN-CERT-2011-1826,DFN-CERT-2011-1774,DFN-CERT-2011-1743,DFN-CERT-2011-1738,DFN-CERT-2011-1706,DFN-CERT-2011-1628,DFN-CERT-2011-1627,DFN-CERT-2011-1619,DFN-CERT-2011-1482,WID-SEC-2023-1435,CB-K18/0799,CB-K16/1289,CB-K16/1096,CB-K15/1751,CB-K15/1266,CB-K15/0850,CB-K15/0764,CB-K15/0720,CB-K15/0548,CB-K15/0526,CB-K15/0509,CB-K15/0493,CB-K15/0384,CB-K15/0365,CB-K15/0364,CB-K15/0302,CB-K15/0192,CB-K15/0079,CB-K15/0016,CB-K14/1342,CB-K14/0231,CB-K13/0845,CB-K13/0796,CB-K13/0790",""
+172.28.184.18,metasplotable3.netwho.lan,22,tcp,2.6,Low,80,"Mitigation","Weak MAC Algorithm(s) Supported (SSH)","The remote SSH server is configured to allow / support weak MAC
+  algorithm(s).","The remote SSH server supports the following weak client-to-server MAC algorithm(s):
+
+hmac-md5
+hmac-md5-96
+hmac-md5-96-etm@openssh.com
+hmac-md5-etm@openssh.com
+hmac-sha1-96
+hmac-sha1-96-etm@openssh.com
+umac-64-etm@openssh.com
+umac-64@openssh.com
+
+
+The remote SSH server supports the following weak server-to-client MAC algorithm(s):
+
+hmac-md5
+hmac-md5-96
+hmac-md5-96-etm@openssh.com
+hmac-md5-etm@openssh.com
+hmac-sha1-96
+hmac-sha1-96-etm@openssh.com
+umac-64-etm@openssh.com
+umac-64@openssh.com
+",1.3.6.1.4.1.25623.1.0.105610,"",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,162ac533-1828-4447-836d-90008d797f16,"","Disable the reported weak MAC algorithm(s).","","","Checks the supported MAC algorithms (client-to-server and
+  server-to-client) of the remote SSH server.
+
+  Currently weak MAC algorithms are defined as the following:
+
+  - MD5 based algorithms
+
+  - 96-bit based algorithms
+
+  - 64-bit based algorithms
+
+  - 'none' algorithm
+Details:
+Weak MAC Algorithm(s) Supported (SSH)
+(OID: 1.3.6.1.4.1.25623.1.0.105610)
+Version used: 2024-06-14T05:05:48Z
+","Product: cpe:/a:ietf:secure_shell_protocol
+Method: SSH Protocol Algorithms Supported
+(OID: 1.3.6.1.4.1.25623.1.0.105565)
+","","",""
+172.28.184.18,metasplotable3.netwho.lan,,,2.6,Low,80,"Mitigation","TCP Timestamps Information Disclosure","The remote host implements TCP timestamps and therefore allows
+  to compute the uptime.","It was detected that the host implements RFC1323/RFC7323.
+
+The following timestamps were retrieved with a delay of 1 seconds in-between:
+Packet 1: 580704650
+Packet 2: 580704927
+",1.3.6.1.4.1.25623.1.0.80091,"",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,1bfaa75e-c18b-43e3-a09c-d3161c3a0470,"A side effect of this feature is that the uptime of the remote
+  host can sometimes be computed.","To disable TCP timestamps on linux add the line
+  'net.ipv4.tcp_timestamps = 0' to /etc/sysctl.conf. Execute 'sysctl -p' to apply the settings at
+  runtime.
+
+  To disable TCP timestamps on Windows execute 'netsh int tcp set global timestamps=disabled'
+
+  Starting with Windows Server 2008 and Vista, the timestamp can not be completely disabled.
+
+  The default behavior of the TCP/IP stack on this Systems is to not use the Timestamp options when
+  initiating TCP connections, but use them if the TCP peer that is initiating communication includes
+  them in their synchronize (SYN) segment.
+
+  See the references for more information.","TCP implementations that implement RFC1323/RFC7323.","The remote host implements TCP timestamps, as defined by
+  RFC1323/RFC7323.","Special IP packets are forged and sent with a little delay in
+  between to the target IP. The responses are searched for a timestamps. If found, the timestamps
+  are reported.
+Details:
+TCP Timestamps Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.80091)
+Version used: 2023-12-15T16:10:08Z
+","","","",""
+172.28.184.18,metasplotable3.netwho.lan,,,2.1,Low,80,"Mitigation","ICMP Timestamp Reply Information Disclosure","The remote host responded to an ICMP timestamp request.","The following response / ICMP packet has been received:
+- ICMP Type: 14
+- ICMP Code: 0
+",1.3.6.1.4.1.25623.1.0.103190,"CVE-1999-0524",84df6c54-e780-4021-9ee3-cf87ffadc181,"netwho.lan Matasploitable",2025-10-12T10:24:26Z,3bd54329-d302-4d6a-9a19-525004d2effb,"This information could theoretically be used to exploit weak
+  time-based random number generators in other services.","Various mitigations are possible:
+
+  - Disable the support for ICMP timestamp on the remote host completely
+
+  - Protect the remote host by a firewall, and block ICMP packets passing through the firewall in
+  either direction (either completely or only for untrusted networks)","","The Timestamp Reply is an ICMP message which replies to a
+  Timestamp message. It consists of the originating timestamp sent by the sender of the Timestamp as
+  well as a receive timestamp and a transmit timestamp.","Sends an ICMP Timestamp (Type 13) request and checks if a
+  Timestamp Reply (Type 14) is received.
+Details:
+ICMP Timestamp Reply Information Disclosure
+(OID: 1.3.6.1.4.1.25623.1.0.103190)
+Version used: 2025-01-21T05:37:33Z
+","","","DFN-CERT-2014-0658,CB-K15/1514,CB-K14/0632",""

@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='utf-8'?>
+<report>
+  <host ip="172.28.184.18">
+    <service port="21" protocol="tcp" name="ProFTPD 1.3.5 Server (mod_copy vulnerability)">
+      <vulnerability cve="CVE-1999-0501" cvss="7.5">
+        <title>FTP Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-1999-0502" cvss="7.5">
+        <title>FTP Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-1999-0507" cvss="7.5">
+        <title>FTP Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-1999-0508" cvss="7.5">
+        <title>FTP Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2001-1594" cvss="7.5">
+        <title>FTP Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2013-7404" cvss="7.5">
+        <title>FTP Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2014-9198" cvss="7.5">
+        <title>FTP Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2015-3306" cvss="10.0">
+        <title>ProFTPD mod_copy Unauthenticated Copying Of Files Via SITE CPFR/CPTO Vulnerability (Apr 2015) - Active Check</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2015-7261" cvss="7.5">
+        <title>FTP Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2016-8731" cvss="7.5">
+        <title>FTP Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2017-8218" cvss="7.5">
+        <title>FTP Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2018-9068" cvss="7.5">
+        <title>FTP Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2018-17771" cvss="7.5">
+        <title>FTP Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2018-19063" cvss="7.5">
+        <title>FTP Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2018-19064" cvss="7.5">
+        <title>FTP Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="NOVT-108528" cvss="4.8">
+        <title>FTP Unencrypted Cleartext Login</title>
+      </vulnerability>
+    </service>
+    <service port="22" protocol="tcp" name="SSH Server">
+      <vulnerability cve="CVE-1999-0501" cvss="9.8">
+        <title>SSH Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-1999-0502" cvss="9.8">
+        <title>SSH Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-1999-0507" cvss="9.8">
+        <title>SSH Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-1999-0508" cvss="9.8">
+        <title>SSH Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2005-1379" cvss="9.8">
+        <title>SSH Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2006-5288" cvss="9.8">
+        <title>SSH Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2009-3710" cvss="9.8">
+        <title>SSH Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2012-4577" cvss="9.8">
+        <title>SSH Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2016-1000245" cvss="9.8">
+        <title>SSH Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2017-16523" cvss="9.8">
+        <title>SSH Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2020-9473" cvss="9.8">
+        <title>SSH Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2020-29583" cvss="9.8">
+        <title>SSH Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2021-27797" cvss="9.8">
+        <title>SSH Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2023-1944" cvss="9.8">
+        <title>SSH Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2024-22902" cvss="9.8">
+        <title>SSH Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2024-31970" cvss="9.8">
+        <title>SSH Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2024-46328" cvss="9.8">
+        <title>SSH Brute Force Logins With Default Credentials Reporting</title>
+      </vulnerability>
+      <vulnerability cve="NOVT-117687" cvss="5.3">
+        <title>Weak Host Key Algorithm(s) (SSH)</title>
+      </vulnerability>
+      <vulnerability cve="NOVT-150713" cvss="5.3">
+        <title>Weak Key Exchange (KEX) Algorithm(s) Supported (SSH)</title>
+      </vulnerability>
+      <vulnerability cve="NOVT-105611" cvss="4.3">
+        <title>Weak Encryption Algorithm(s) Supported (SSH)</title>
+      </vulnerability>
+      <vulnerability cve="NOVT-105610" cvss="2.6">
+        <title>Weak MAC Algorithm(s) Supported (SSH)</title>
+      </vulnerability>
+    </service>
+    <service port="80" protocol="tcp" name="Apache httpd">
+      <vulnerability cve="CVE-2011-3730" cvss="5.0">
+        <title>Drupal 7.0 Information Disclosure Vulnerability - Active Check</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2011-4969" cvss="4.3">
+        <title>jQuery &lt; 1.6.3 XSS Vulnerability</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2012-6708" cvss="6.1">
+        <title>jQuery &lt; 1.9.0 XSS Vulnerability</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2014-3704" cvss="7.5">
+        <title>Drupal Core SQLi Vulnerability (SA-CORE-2014-005) - Active Check</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2017-16894" cvss="5.0">
+        <title>Sensitive File Disclosure (HTTP)</title>
+      </vulnerability>
+      <vulnerability cve="NOVT-105818" cvss="10.0">
+        <title>Drupal Coder RCE Vulnerability (SA-CONTRIB-2016-039) - Active Check</title>
+      </vulnerability>
+      <vulnerability cve="NOVT-10498" cvss="7.5">
+        <title>Test HTTP dangerous methods</title>
+      </vulnerability>
+      <vulnerability cve="NOVT-107307" cvss="5.0">
+        <title>Unprotected Web App / Device Installers (HTTP)</title>
+      </vulnerability>
+      <vulnerability cve="NOVT-108440" cvss="4.8">
+        <title>Cleartext Transmission of Sensitive Information via HTTP</title>
+      </vulnerability>
+    </service>
+    <service port="631" protocol="tcp" name="SSL/TLS Service on port 631">
+      <vulnerability cve="CVE-2011-3389" cvss="4.3">
+        <title>SSL/TLS: Deprecated TLSv1.0 and TLSv1.1 Protocol Detection</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2015-0204" cvss="4.3">
+        <title>SSL/TLS: Deprecated TLSv1.0 and TLSv1.1 Protocol Detection</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2016-2183" cvss="7.5">
+        <title>SSL/TLS: Report Vulnerable Cipher Suites for HTTPS</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2016-6329" cvss="7.5">
+        <title>SSL/TLS: Report Vulnerable Cipher Suites for HTTPS</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2020-12872" cvss="7.5">
+        <title>SSL/TLS: Report Vulnerable Cipher Suites for HTTPS</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2023-41928" cvss="4.3">
+        <title>SSL/TLS: Deprecated TLSv1.0 and TLSv1.1 Protocol Detection</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2024-41270" cvss="4.3">
+        <title>SSL/TLS: Deprecated TLSv1.0 and TLSv1.1 Protocol Detection</title>
+      </vulnerability>
+      <vulnerability cve="CVE-2025-3200" cvss="4.3">
+        <title>SSL/TLS: Deprecated TLSv1.0 and TLSv1.1 Protocol Detection</title>
+      </vulnerability>
+    </service>
+  </host>
+</report>
