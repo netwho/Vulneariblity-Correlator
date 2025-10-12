@@ -60,20 +60,32 @@ cp vulners_correlator_final.lua ~/.local/lib/wireshark/plugins/
 ## Usage
 
 ### 1. Generate Vulnerability Scan
-First, scan your target network with nmap and the Vulners script:
+Scan your target network with nmap and Vulners. **Save to home directory** for automatic detection:
 ```bash
+# Recommended: Save to home directory (no plugin configuration needed)
 nmap -sV --script vuln,vulners --script-args vulners.shodan-api-key=YOUR_KEY \
-     -oX vulners_scan.xml 192.168.1.0/24
+     -oX ~/vulners_scan.xml 192.168.1.0/24
+
+# Alternative: Basic scan without Shodan API
+nmap -sV --script vuln,vulners -oX ~/vulners_scan.xml 192.168.1.0/24
 ```
 
-### 2. Configure Plugin
-Edit the XML file path in the plugin:
+### 2. Configure Plugin (Optional)
+
+**📁 Default Configuration**: The plugin automatically looks for `vulners_scan.xml` in your **home directory** (`~/vulners_scan.xml`).
+
+**✅ No configuration needed** if your scan file is at the default location!
+
+**🔧 For custom locations**, edit the plugin file:
 ```bash
 # Open the plugin file
 nano ~/.local/lib/wireshark/plugins/vulners_correlator_final.lua
 
-# Update line 5:
-prefs.xml_path = "/path/to/your/vulners_scan.xml"
+# Update line 5 (default is automatic):
+prefs.xml_path = os.getenv("HOME") .. "/vulners_scan.xml"  # Default
+
+# Or set custom path:
+prefs.xml_path = "/path/to/your/custom-scan.xml"
 ```
 
 ### 3. Launch Wireshark
