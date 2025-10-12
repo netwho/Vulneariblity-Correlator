@@ -161,6 +161,23 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 - Uses **Consolas** font (standard Windows monospace font)
 - Optimized for readability and security analysis
 
+## 📁 **Default XML Location**
+
+### **Automatic Detection**
+The plugin is **pre-configured** to look for vulnerability scan files at:
+- **Location**: `%USERPROFILE%\vulners_scan.xml`
+- **Example**: `C:\Users\YourName\vulners_scan.xml`
+- **Benefit**: Zero configuration required!
+
+### **Quick Workflow**
+```powershell
+# 1. Generate scan to default location (use PowerShell or Command Prompt)
+nmap -sV --script vuln,vulners -oX "%USERPROFILE%\vulners_scan.xml" 192.168.1.0/24
+
+# 2. Install plugin (already done if using installer)
+# 3. Launch Wireshark - vulnerability data loads automatically!
+```
+
 ## 🔍 **Usage After Installation**
 
 ### **1. Launch Wireshark**
@@ -171,13 +188,24 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 - Go to: **Edit → Configuration Profiles**
 - Select: **"Vulnerability Analysis"**
 
-### **3. Configure XML Path**
-Edit the plugin to point to your vulnerability scan:
+### **3. Configure XML Path (Optional)**
+
+**📁 Default Configuration**: The plugin automatically looks for `vulners_scan.xml` in your **user profile directory**:
+- **Location**: `%USERPROFILE%\vulners_scan.xml`
+- **Example**: `C:\Users\YourName\vulners_scan.xml`
+
+**✅ No configuration needed** if your scan file is at the default location!
+
+**🔧 For custom locations**, edit the plugin file:
 1. Open File Explorer: `%APPDATA%\Wireshark\plugins\`
 2. Right-click `vulners_correlator_final.lua` → **Open with Notepad**
-3. Update line 5:
+3. Line 5 shows current default:
    ```lua
-   prefs.xml_path = "C:\\path\\to\\your\\vulners_scan.xml"
+   prefs.xml_path = os.getenv("HOME") .. "/vulners_scan.xml"  -- Default
+   ```
+4. For custom path, change to:
+   ```lua
+   prefs.xml_path = "C:\\path\\to\\your\\custom_scan.xml"
    ```
    **Note**: Use double backslashes (`\\`) in Windows paths!
 
