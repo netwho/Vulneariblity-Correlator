@@ -143,7 +143,23 @@ sudo wireshark
 | CVE ID | `vulners.cve_id` | CVE identifier |
 | Service Description | `vulners.service_desc` | Service info from nmap scan |
 
-## 🔍 **Usage After Installation**
+## 📁 **Default XML Location**
+
+### **Automatic Detection**
+The plugin is **pre-configured** to look for vulnerability scan files at:
+- **Location**: `~/vulners_scan.xml` (e.g., `/home/username/vulners_scan.xml`)
+- **Benefit**: Zero configuration required!
+
+### **Quick Workflow**
+```bash
+# 1. Generate scan to default location
+nmap -sV --script vuln,vulners -oX ~/vulners_scan.xml 192.168.1.0/24
+
+# 2. Install plugin (already done if using installer)
+# 3. Launch Wireshark - vulnerability data loads automatically!
+```
+
+## 📱 **Usage After Installation**
 
 ### **1. Launch Wireshark**
 ```bash
@@ -156,13 +172,21 @@ wireshark
 - Go to: **Edit → Configuration Profiles**
 - Select: **"Vulnerability Analysis"**
 
-### **3. Configure XML Path**
-Edit the plugin to point to your vulnerability scan:
+### **3. Configure XML Path (Optional)**
+
+**📁 Default Configuration**: The plugin automatically looks for `vulners_scan.xml` in your **home directory** (`~/vulners_scan.xml`).
+
+**✅ No configuration needed** if your scan file is at the default location!
+
+**🔧 For custom locations**, edit the plugin file:
 ```bash
 nano ~/.local/lib/wireshark/plugins/vulners_correlator_final.lua
 
-# Update line 5:
-prefs.xml_path = "/path/to/your/vulners_scan.xml"
+# Current default (automatic detection):
+prefs.xml_path = os.getenv("HOME") .. "/vulners_scan.xml"
+
+# Or set custom path:
+prefs.xml_path = "/path/to/your/custom-scan.xml"
 ```
 
 ### **4. Load Capture and Analyze**
