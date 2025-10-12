@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue)]()
 [![Language](https://img.shields.io/badge/language-Lua-purple)]()
 
-A powerful Wireshark plugin that bridges the gap between vulnerability scanning and network traffic analysis. This plugin correlates nmap Vulners XML vulnerability scan results with captured network traffic, providing **real-time vulnerability context** directly in the Wireshark interface.
+A powerful Wireshark plugin that bridges the gap between vulnerability scanning and network traffic analysis. This plugin correlates **nmap Vulners** and **OpenVAS** vulnerability scan results with captured network traffic, providing **real-time vulnerability context** directly in the Wireshark interface.
 
 ![Wireshark Vulnerability Analysis](https://img.shields.io/badge/Security-Analysis-red?style=for-the-badge)
 
@@ -47,11 +47,21 @@ Transform your network analysis workflow by automatically identifying vulnerable
 
 ### Prerequisites
 - **Wireshark** (version 4.0+) - [Download here](https://www.wireshark.org/download.html)
-- **nmap** with Vulners script
+- **nmap** with Vulners script OR **OpenVAS** vulnerability scanner
 - **Network capture files** (pcap/pcapng)
-- **Vulnerability scan results** (XML format from nmap Vulners)
+- **Vulnerability scan results** (XML format from nmap Vulners OR OpenVAS CSV converted to XML)
 
 ## 🧪 **Sample Files & Demo**
+
+### OpenVAS Demo Support
+This repository includes helper tools to convert OpenVAS CSV exports into an XML format that the plugin understands, so you can correlate OpenVAS findings with your traffic:
+
+```bash
+# Convert OpenVAS CSV export to XML
+cd helper/
+python3 openvas_csv_to_xml.py sample-input.csv ~/vulners_scan.xml
+# Plugin will automatically load ~/vulners_scan.xml
+```
 
 **Try it immediately with included sample data!** We've provided test files so you can see the plugin in action right away.
 
@@ -215,6 +225,8 @@ Copy-Item "vulners_correlator_final.lua" "$env:APPDATA\Wireshark\plugins\"
 ## 📡 **Usage Workflow**
 
 ### 1. **Generate Vulnerability Scan**
+
+#### Option A: nmap Vulners (Traditional)
 Scan your target network with nmap and Vulners. **Save to your home directory** for automatic detection:
 ```bash
 # Basic scan with vulnerability detection (saves to home directory)
@@ -227,6 +239,26 @@ nmap -sV --script vuln,vulners --script-args vulners.shodan-api-key=YOUR_KEY \
 # Alternative: Save to current directory (requires plugin configuration)
 nmap -sV --script vuln,vulners -oX vulners_scan.xml 192.168.1.0/24
 ```
+
+#### Option B: OpenVAS (New!)
+Use OpenVAS for comprehensive vulnerability scanning, then convert to plugin format:
+
+```bash
+# 1. Run OpenVAS scan on your target network via OpenVAS web interface
+# 2. Export scan results to CSV format
+# 3. Convert OpenVAS CSV to plugin-compatible XML
+cd helper/
+python3 openvas_csv_to_xml.py /path/to/openvas-export.csv ~/vulners_scan.xml
+
+# Example with included sample data:
+python3 openvas_csv_to_xml.py sample-input.csv ~/vulners_scan.xml
+```
+
+**🔥 OpenVAS Advantages:**
+- 🐋 More comprehensive vulnerability detection
+- 📦 Includes vulnerabilities without official CVE identifiers  
+- 🗺️ Enterprise-grade scanning with detailed service detection
+- 🔄 Automatic synthetic CVE generation (NOVT-*) for missing identifiers
 
 ### 2. **Configure Plugin (Default Location)**
 
@@ -324,7 +356,39 @@ vulners.service_desc contains "SSH" and vulners.cvss_high > 0
 vulners.cve_id and vulners.cvss_high >= 9.0
 ```
 
-## 🎨 **Visual Analysis**
+## 🔧 **OpenVAS Helper Tools**
+
+The `helper/` directory contains tools for seamless OpenVAS integration:
+
+### **CSV to XML Converter**
+```bash
+cd helper/
+# Basic conversion
+python3 openvas_csv_to_xml.py your-openvas-export.csv output.xml
+
+# Direct to default plugin location
+python3 openvas_csv_to_xml.py your-openvas-export.csv ~/vulners_scan.xml
+```
+
+### **Sample Data for Testing**
+- **`sample-input.csv`**: Real OpenVAS CSV export for testing
+- **`sample-output.xml`**: Example converted XML showing expected format
+- **`README.md`**: Detailed helper documentation and usage examples
+
+### **Features of the Converter**
+- ✅ **Automatic CVE Detection**: Extracts official CVE identifiers
+- ✅ **Synthetic CVE Generation**: Creates NOVT-* identifiers for vulnerabilities without CVEs
+- ✅ **Service Detection**: Maps OpenVAS findings to nmap-style service descriptions
+- ✅ **CVSS Preservation**: Maintains original CVSS scores from OpenVAS
+- ✅ **Port/Protocol Mapping**: Correlates vulnerabilities with specific network services
+
+### **OpenVAS Workflow Integration**
+1. **Scan**: Run OpenVAS scan on your target network
+2. **Export**: Download results as CSV from OpenVAS web interface
+3. **Convert**: Use `helper/openvas_csv_to_xml.py` to create plugin-compatible XML
+4. **Analyze**: Load packet capture in Wireshark - vulnerability data appears automatically!
+
+## 🍨 **Visual Analysis**
 
 ### **Automatic Color Coding**
 The plugin applies intelligent color filters:
@@ -388,9 +452,11 @@ No. | Time | Source | Destination | CVSS Score | CVE ID | Service Description | 
 
 ### **Plugin Architecture**
 - **Language**: Lua (Wireshark native)
-- **XML Parser**: Custom SLAXML implementation
+- **Data Sources**: nmap Vulners XML + OpenVAS (via CSV conversion)
+- **XML Parser**: Custom SLAXML implementation with automatic format detection
 - **Performance**: Optimized for large capture files
 - **Memory**: Efficient caching for real-time analysis
+- **CVE Handling**: Official CVEs + synthetic identifiers (NOVT-*) for comprehensive coverage
 
 ## 🔧 **Configuration**
 
@@ -408,6 +474,11 @@ The "Vulnerability Analysis" profile includes:
 - Optimized layout for security analysis
 
 ## 📁 **File Locations Reference**
+
+### **Repository Structure**
+- **`helper/`**: OpenVAS integration tools and sample data
+- **`samples/`**: nmap sample data for testing
+- **Platform installers**: `Mac-Installer/`, `Linux-Installer/`, `Windows-Installer/`
 
 ### **macOS**
 - Plugin: `~/.local/lib/wireshark/plugins/vulners_correlator_final.lua`
@@ -431,9 +502,15 @@ The "Vulnerability Analysis" profile includes:
 
 ### **No Vulnerability Data**
 - Confirm XML file path in plugin configuration
-- Verify XML contains nmap Vulners script output
+- Verify XML contains nmap Vulners script output OR converted OpenVAS data
 - Check Wireshark console for error messages
 - Test XML file accessibility and format
+
+### **OpenVAS Conversion Issues**
+- Ensure Python 3 is installed for the conversion script
+- Verify CSV export format from OpenVAS (see `helper/sample-input.csv` for reference)
+- Check that converted XML contains `<vulnerability>` elements
+- Test conversion with sample data: `python3 helper/openvas_csv_to_xml.py helper/sample-input.csv test.xml`
 
 ### **Display Filters Not Working**
 - Use correct field names (see Field Reference above)
@@ -460,10 +537,12 @@ The "Vulnerability Analysis" profile includes:
 ## 🤝 **Contributing**
 
 We welcome contributions! Areas for enhancement:
-- Additional vulnerability data source support
+- Additional vulnerability data source support (Nessus, Qualys, etc.)
+- Enhanced OpenVAS CSV parsing and field extraction
 - Enhanced reporting formats
 - Performance optimizations
 - Cross-platform installer improvements
+- OpenVAS integration improvements and additional field support
 
 ## 📄 **License**
 
