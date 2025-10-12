@@ -146,13 +146,43 @@ All our automated installers provide the same comprehensive setup:
 - ✅ **Verification**: Confirm installation and provide troubleshooting guidance
 - ✅ **Safety**: Backup existing files and provide detailed instructions
 
+## 📱 **Default Configuration**
+
+### **XML File Location**
+The plugin is **pre-configured** to automatically look for your vulnerability scan file at:
+
+| Platform | Default Location | Example |
+|----------|------------------|----------|
+| **macOS** | `~/vulners_scan.xml` | `/Users/john/vulners_scan.xml` |
+| **Linux** | `~/vulners_scan.xml` | `/home/john/vulners_scan.xml` |
+| **Windows** | `%USERPROFILE%\vulners_scan.xml` | `C:\Users\john\vulners_scan.xml` |
+
+### **Quick Start (No Configuration Required)**
+```bash
+# 1. Generate nmap scan to default location
+nmap -sV --script vuln,vulners -oX ~/vulners_scan.xml 192.168.1.0/24
+
+# 2. Install plugin (run installer from appropriate directory)
+# 3. Launch Wireshark - vulnerability data loads automatically!
+```
+
+### **Custom XML Location**
+To use a different file location, edit line 5 in the plugin file:
+```lua
+-- Default (automatic detection)
+prefs.xml_path = os.getenv("HOME") .. "/vulners_scan.xml"
+
+-- Custom location example
+prefs.xml_path = "/path/to/your/custom-scan.xml"
+```
+
 ## 📚 **Platform-Specific Guides**
 
 For detailed platform-specific instructions, troubleshooting, and advanced options:
 
-- **📖 macOS**: [Mac-Installer/README.md](./Mac-Installer/README.md)
-- **📖 Linux**: [Linux-Installer/README.md](./Linux-Installer/README.md)  
-- **📖 Windows**: [Windows-Installer/README.md](./Windows-Installer/README.md)
+- **📜 macOS**: [Mac-Installer/README.md](./Mac-Installer/README.md)
+- **📜 Linux**: [Linux-Installer/README.md](./Linux-Installer/README.md)  
+- **📜 Windows**: [Windows-Installer/README.md](./Windows-Installer/README.md)
 
 ## ⚙️ **Manual Installation (All Platforms)**
 
@@ -185,25 +215,34 @@ Copy-Item "vulners_correlator_final.lua" "$env:APPDATA\Wireshark\plugins\"
 ## 📡 **Usage Workflow**
 
 ### 1. **Generate Vulnerability Scan**
-Scan your target network with nmap and Vulners:
+Scan your target network with nmap and Vulners. **Save to your home directory** for automatic detection:
 ```bash
-# Basic scan with vulnerability detection
-nmap -sV --script vuln,vulners -oX vulners_scan.xml 192.168.1.0/24
+# Basic scan with vulnerability detection (saves to home directory)
+nmap -sV --script vuln,vulners -oX ~/vulners_scan.xml 192.168.1.0/24
 
-# Enhanced scan with Shodan API (recommended)
+# Enhanced scan with Shodan API (recommended) 
 nmap -sV --script vuln,vulners --script-args vulners.shodan-api-key=YOUR_KEY \
-     -oX vulners_scan.xml 192.168.1.0/24
+     -oX ~/vulners_scan.xml 192.168.1.0/24
+
+# Alternative: Save to current directory (requires plugin configuration)
+nmap -sV --script vuln,vulners -oX vulners_scan.xml 192.168.1.0/24
 ```
 
-### 2. **Configure Plugin**
-Update the XML file path in the plugin:
+### 2. **Configure Plugin (Default Location)**
 
+**📁 Default XML Location**: The plugin is pre-configured to look for `vulners_scan.xml` in your **home directory**:
+- **macOS/Linux**: `~/vulners_scan.xml` (e.g., `/Users/username/vulners_scan.xml`)
+- **Windows**: `%USERPROFILE%\vulners_scan.xml` (e.g., `C:\Users\username\vulners_scan.xml`)
+
+**✅ If your XML file is in the default location**, no configuration needed!
+
+**🔧 To use a different location**, edit the plugin file:
 ```bash
 # macOS/Linux
 nano ~/.local/lib/wireshark/plugins/vulners_correlator_final.lua
 
-# Update line 5 with your scan file location:
-prefs.xml_path = "/path/to/your/vulners_scan.xml"
+# Update line 5 with your custom scan file location:
+prefs.xml_path = "/path/to/your/custom_scan.xml"
 ```
 
 ```powershell
@@ -211,7 +250,8 @@ prefs.xml_path = "/path/to/your/vulners_scan.xml"
 notepad "$env:APPDATA\Wireshark\plugins\vulners_correlator_final.lua"
 
 # Update line 5 (use double backslashes in Windows paths):
-prefs.xml_path = "C:\\path\\to\\your\\vulners_scan.xml"
+prefs.xml_path = "C:\\path\\to\\your\\custom_scan.xml"
+```
 ```
 
 ### 3. **Analyze Traffic**
