@@ -2,7 +2,7 @@
 
 [![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-blue)]()
 [![Wireshark](https://img.shields.io/badge/wireshark-4.0%2B-green)]()
-[![License](https://img.shields.io/badge/license-MIT-blue)]()
+[![License](https://img.shields.io/badge/license-GPL--2.0-blue)](LICENSE)
 [![Language](https://img.shields.io/badge/language-Lua-purple)]()
 
 A powerful Wireshark plugin that bridges the gap between vulnerability scanning and network traffic analysis. This plugin correlates **nmap Vulners** and **OpenVAS** vulnerability scan results with captured network traffic, providing **real-time vulnerability context** directly in the Wireshark interface.
@@ -546,7 +546,11 @@ We welcome contributions! Areas for enhancement:
 
 ## 📄 **License**
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU General Public License v2.0 - see the [LICENSE](LICENSE) file for details.
+
+This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 ## 👤 **Author**
 
