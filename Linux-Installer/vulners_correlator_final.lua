@@ -1,6 +1,16 @@
 -- Final Clean Wireshark Vulners Correlator with CVSS Column Support
 -- Correlates nmap Vulners XML with network traffic, generates reports, and populates custom columns
 
+------------------------------------------------------------
+-- Plugin Information
+------------------------------------------------------------
+set_plugin_info({
+  version = "0.1.0",
+  description = "Vulnerability Correlator - Correlates nmap Vulners and OpenVAS scans with network traffic",
+  author = "Vulnerability Correlator Project",
+  repository = "https://github.com/netwho/Wireshark-Vulnerability-Correlator"
+})
+
 local prefs = {}
 prefs.xml_path = os.getenv("HOME") .. "/vulners_scan.xml"
 
