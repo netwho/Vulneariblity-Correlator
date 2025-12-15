@@ -7,7 +7,7 @@
 set_plugin_info({
   version = "0.1.0",
   description = "Vulnerability Correlator - Correlates nmap Vulners and OpenVAS scans with network traffic",
-  author = "Vulnerability Correlator Project",
+  author = "Walter Hofstetter",
   repository = "https://github.com/netwho/Wireshark-Vulnerability-Correlator"
 })
 
